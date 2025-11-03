@@ -97,7 +97,7 @@ class LocalLLMClient:
                 self.in_context_examples = list(csv.DictReader(f))
 
                 if set(self.in_context_examples[0].keys()) != set(["type", "request", "tool", "response" ]):
-                    raise Exception("ICL csv file did not have 2 columns: service & response")
+                    raise Exception("ICL csv file did not have 4 columns: type, request, tool, response")
 
             if len(self.in_context_examples) == 0:
                 _LOGGER.warning(f"There were no in context learning examples found in the file '{filename}'!")
