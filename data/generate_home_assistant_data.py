@@ -74,7 +74,7 @@ def closest_color(requested_color):
                 gd = (g_c - requested_color[1]) ** 2
                 bd = (b_c - requested_color[2]) ** 2
                 min_colors[(rd + gd + bd)] = name
-            except:
+            except (ValueError, AttributeError):
                 pass
     return min_colors[min(min_colors.keys())]
 
@@ -695,7 +695,11 @@ def generate_templated_example(template: dict, persona: str, max_devices: int = 
         if "<color>" in question:
             random_rgb = light_device_type.get_random_parameter("rgb_color")
             random_rgb_name = closest_color(random_rgb)
-            actual_random_rgb = webcolors.name_to_rgb(random_rgb_name)
+            # Support both old and new webcolors API
+            if hasattr(webcolors, 'CSS3_HEX_TO_NAMES'):
+                actual_random_rgb = webcolors.name_to_rgb(random_rgb_name)
+            else:
+                actual_random_rgb = webcolors.name_to_rgb(random_rgb_name, spec=webcolors.CSS3)
             actual_random_rgb = (actual_random_rgb.red, actual_random_rgb.green, actual_random_rgb.blue)
             question = question.replace("<color>", str(random_rgb_name))
             answer = replace_answer(answer, "<color>", str(random_rgb_name))
@@ -772,7 +776,11 @@ def generate_status_request(template: dict, persona: str, max_devices: int = 32,
 
         random_rgb = light_device_type.get_random_parameter("rgb_color")
         random_rgb_name = closest_color(random_rgb)
-        actual_random_rgb = webcolors.name_to_rgb(random_rgb_name)
+        # Support both old and new webcolors API
+        if hasattr(webcolors, 'CSS3_HEX_TO_NAMES'):
+            actual_random_rgb = webcolors.name_to_rgb(random_rgb_name)
+        else:
+            actual_random_rgb = webcolors.name_to_rgb(random_rgb_name, spec=webcolors.CSS3)
         actual_random_rgb = (actual_random_rgb.red, actual_random_rgb.green, actual_random_rgb.blue)
         state_name = state_name.replace("<color>", str(random_rgb_name) + " " + str(actual_random_rgb))
         answer = answer.replace("<color>", str(random_rgb_name))
