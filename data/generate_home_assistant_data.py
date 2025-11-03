@@ -56,12 +56,26 @@ and_words = None
 
 def closest_color(requested_color):
     min_colors = {}
-    for key, name in webcolors.CSS3_HEX_TO_NAMES.items():
-        r_c, g_c, b_c = webcolors.hex_to_rgb(key)
-        rd = (r_c - requested_color[0]) ** 2
-        gd = (g_c - requested_color[1]) ** 2
-        bd = (b_c - requested_color[2]) ** 2
-        min_colors[(rd + gd + bd)] = name
+    # Support both old and new webcolors API
+    if hasattr(webcolors, 'CSS3_HEX_TO_NAMES'):
+        # Old API (webcolors < 2.0)
+        for key, name in webcolors.CSS3_HEX_TO_NAMES.items():
+            r_c, g_c, b_c = webcolors.hex_to_rgb(key)
+            rd = (r_c - requested_color[0]) ** 2
+            gd = (g_c - requested_color[1]) ** 2
+            bd = (b_c - requested_color[2]) ** 2
+            min_colors[(rd + gd + bd)] = name
+    else:
+        # New API (webcolors >= 2.0)
+        for name in webcolors.names(spec=webcolors.CSS3):
+            try:
+                r_c, g_c, b_c = webcolors.name_to_rgb(name, spec=webcolors.CSS3)
+                rd = (r_c - requested_color[0]) ** 2
+                gd = (g_c - requested_color[1]) ** 2
+                bd = (b_c - requested_color[2]) ** 2
+                min_colors[(rd + gd + bd)] = name
+            except:
+                pass
     return min_colors[min(min_colors.keys())]
 
 def generate_random_datetime():
@@ -536,12 +550,20 @@ def generate_static_example(action: dict, persona: str, max_devices: int = 32):
 
     response = response.replace("<device_name>", friendly_name)
 
+    service_calls = [ { "service": service_name, "target_device": target_device } ]
+    
+    # Add message parameter for notify services
+    if "notify" in service_name:
+        notify_device_type = SUPPORTED_DEVICES["notify"]
+        message = notify_device_type.get_random_parameter("message")
+        service_calls = [ { **call, "message": message } for call in service_calls ]
+
     return {
         "states": device_list,
         "available_services": list(available_services),
         "question": question.lower(),
         "answers": [ response ],
-        "service_calls": [ { "service": service_name, "target_device": target_device } ]
+        "service_calls": service_calls
     }
 
 def replace_answer(list_of_answer, var, value):
@@ -695,6 +717,12 @@ def generate_templated_example(template: dict, persona: str, max_devices: int = 
             question = question.replace("<todo>", todo)
             answer = replace_answer(answer, "<todo>", todo)
             service_calls = [ { **call, "item": todo } for call in service_calls ]
+
+    if any(["notify" in service for service in service_names ]):
+        notify_device_type = SUPPORTED_DEVICES["notify"]
+        # Add message parameter for notify services
+        message = notify_device_type.get_random_parameter("message")
+        service_calls = [ { **call, "message": message } for call in service_calls ]
 
     return {
         "states": device_list,
