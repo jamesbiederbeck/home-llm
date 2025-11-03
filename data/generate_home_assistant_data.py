@@ -329,6 +329,44 @@ SUPPORTED_DEVICES = {
             "todo": lambda: random.choice(pile_of_todo_items),
         }
     ),
+    "notify": DeviceType(
+        name="notify",
+        possible_states=[
+            (STATE_ON, 1.0),
+        ],
+        services={
+            "mobile_app_pixel_7": ["message"],
+            "mobile_app_pixel_8": ["message"],
+            "mobile_app_samsung_s23": ["message"],
+            "mobile_app_samsung_s24": ["message"],
+            "mobile_app_oneplus_11": ["message"],
+            "mobile_app_pixel_tablet": ["message"],
+            "mobile_app_samsung_tab": ["message"],
+            "mobile_app_android_phone": ["message"],
+            "mobile_app_my_phone": ["message"],
+            "mobile_app_work_phone": ["message"],
+            "mobile_app_family_tablet": ["message"],
+            "mobile_app_guest_phone": ["message"],
+            "mobile_app_pixel_6": ["message"],
+            "mobile_app_galaxy_fold": ["message"],
+            "mobile_app_motorola": ["message"],
+            "mobile_app_xiaomi": ["message"],
+            "mobile_app_bedroom_tablet": ["message"],
+            "mobile_app_kids_tablet": ["message"],
+            "mobile_app_backup_phone": ["message"],
+            "mobile_app_travel_phone": ["message"],
+        },
+        random_parameter_generator={
+            "message": lambda: random.choice([
+                "request_location_update",
+                "command_dnd",
+                "command_ringer_mode",
+                "command_update_sensors",
+                "command_high_accuracy_mode",
+                "command_bluetooth",
+            ]),
+        }
+    ),
 }
 
 CURRENT_DATE_PROMPT = {
