@@ -263,71 +263,39 @@ timer,cancel,"Please stop my <device_name>.",8
 timer,cancel,"Turn off the <device_name>.",8
 timer,cancel,"Please shut off the <device_name> timer.",8
 timer,cancel,"The <device_name> is no longer needed.",8
-notify,mobile_app_pixel_7,"Request location update from <device_name>",4
-notify,mobile_app_pixel_7,"Ping <device_name> for a location update",4
-notify,mobile_app_pixel_7,"Get location from <device_name>",4
-notify,mobile_app_pixel_7,"Update location on <device_name>",4
-notify,mobile_app_pixel_8,"Request location update from <device_name>",4
-notify,mobile_app_pixel_8,"Ping <device_name> for location",4
-notify,mobile_app_pixel_8,"Get current location from <device_name>",4
-notify,mobile_app_samsung_s23,"Request location update from <device_name>",4
-notify,mobile_app_samsung_s23,"Ping <device_name> for a location update",4
-notify,mobile_app_samsung_s24,"Request location update from <device_name>",4
-notify,mobile_app_samsung_s24,"Get location from <device_name>",4
-notify,mobile_app_android_phone,"Request location update from <device_name>",4
-notify,mobile_app_android_phone,"Ping <device_name> for location",4
-notify,mobile_app_my_phone,"Request location update from <device_name>",4
-notify,mobile_app_my_phone,"Ping <device_name> for a location update",4
-notify,mobile_app_my_phone,"Get location from <device_name>",4
-notify,mobile_app_work_phone,"Request location update from <device_name>",4
-notify,mobile_app_work_phone,"Ping <device_name> for location",4
-notify,mobile_app_pixel_7,"Enable Do Not Disturb on <device_name>",4
-notify,mobile_app_pixel_7,"Turn on Do Not Disturb mode on <device_name>",4
-notify,mobile_app_pixel_7,"Set <device_name> to Do Not Disturb",4
-notify,mobile_app_pixel_8,"Enable Do Not Disturb on <device_name>",4
-notify,mobile_app_pixel_8,"Activate Do Not Disturb on <device_name>",4
-notify,mobile_app_samsung_s23,"Enable Do Not Disturb on <device_name>",4
-notify,mobile_app_samsung_s23,"Turn on Do Not Disturb on <device_name>",4
-notify,mobile_app_android_phone,"Enable Do Not Disturb on <device_name>",4
-notify,mobile_app_android_phone,"Set <device_name> to Do Not Disturb mode",4
-notify,mobile_app_my_phone,"Enable Do Not Disturb on <device_name>",4
-notify,mobile_app_my_phone,"Turn on Do Not Disturb mode on <device_name>",4
-notify,mobile_app_pixel_7,"Set <device_name> ringer to silent",4
-notify,mobile_app_pixel_7,"Silence <device_name>",4
-notify,mobile_app_pixel_7,"Put <device_name> on silent mode",4
-notify,mobile_app_pixel_8,"Set <device_name> ringer to vibrate",4
-notify,mobile_app_pixel_8,"Put <device_name> on vibrate",4
-notify,mobile_app_samsung_s23,"Set <device_name> ringer to normal",4
-notify,mobile_app_samsung_s23,"Turn on <device_name> ringer",4
-notify,mobile_app_android_phone,"Silence <device_name>",4
-notify,mobile_app_android_phone,"Set <device_name> to silent mode",4
-notify,mobile_app_my_phone,"Set <device_name> ringer to vibrate",4
-notify,mobile_app_my_phone,"Put <device_name> on vibrate mode",4
-notify,mobile_app_pixel_7,"Update sensors on <device_name>",4
-notify,mobile_app_pixel_7,"Refresh all sensors on <device_name>",4
-notify,mobile_app_pixel_7,"Update <device_name> sensors",4
-notify,mobile_app_pixel_8,"Update sensors on <device_name>",4
-notify,mobile_app_pixel_8,"Refresh sensors on <device_name>",4
-notify,mobile_app_samsung_s23,"Update sensors on <device_name>",4
-notify,mobile_app_samsung_s23,"Refresh all sensors on <device_name>",4
-notify,mobile_app_android_phone,"Update sensors on <device_name>",4
-notify,mobile_app_android_phone,"Refresh <device_name> sensors",4
-notify,mobile_app_my_phone,"Update sensors on <device_name>",4
-notify,mobile_app_my_phone,"Refresh all sensors on <device_name>",4
-notify,mobile_app_pixel_7,"Turn on high accuracy mode on <device_name>",4
-notify,mobile_app_pixel_7,"Enable high accuracy location on <device_name>",4
-notify,mobile_app_pixel_8,"Turn on high accuracy mode on <device_name>",4
-notify,mobile_app_pixel_8,"Enable precise location on <device_name>",4
-notify,mobile_app_samsung_s23,"Turn on high accuracy mode on <device_name>",4
-notify,mobile_app_android_phone,"Enable high accuracy mode on <device_name>",4
-notify,mobile_app_my_phone,"Turn on high accuracy mode on <device_name>",4
-notify,mobile_app_my_phone,"Enable high accuracy location on <device_name>",4
-notify,mobile_app_pixel_7,"Turn on Bluetooth on <device_name>",4
-notify,mobile_app_pixel_7,"Enable Bluetooth on <device_name>",4
-notify,mobile_app_pixel_8,"Turn on Bluetooth on <device_name>",4
-notify,mobile_app_pixel_8,"Activate Bluetooth on <device_name>",4
-notify,mobile_app_samsung_s23,"Turn on Bluetooth on <device_name>",4
-notify,mobile_app_samsung_s23,"Enable Bluetooth on <device_name>",4
-notify,mobile_app_android_phone,"Turn on Bluetooth on <device_name>",4
-notify,mobile_app_my_phone,"Turn on Bluetooth on <device_name>",4
-notify,mobile_app_my_phone,"Enable Bluetooth on <device_name>",4
+notify,request_location_update,"Request a location update from <device_name>",4
+notify,request_location_update,"Ping <device_name> for a location update",4
+notify,request_location_update,"Get the current location from <device_name>",4
+notify,request_location_update,"Update the location of <device_name>",4
+notify,request_location_update,"Where is <device_name> right now",4
+notify,command_update_sensors,"Update all sensors on <device_name>",4
+notify,command_update_sensors,"Refresh the sensors on <device_name>",4
+notify,command_update_sensors,"Sync the sensors on <device_name>",4
+notify,command_bluetooth_on,"Turn on Bluetooth on <device_name>",4
+notify,command_bluetooth_on,"Enable Bluetooth on <device_name>",4
+notify,command_bluetooth_on,"Switch on Bluetooth on <device_name>",4
+notify,command_bluetooth_off,"Turn off Bluetooth on <device_name>",4
+notify,command_bluetooth_off,"Disable Bluetooth on <device_name>",4
+notify,command_dnd_on,"Turn on Do Not Disturb on <device_name>",4
+notify,command_dnd_on,"Enable Do Not Disturb on <device_name>",4
+notify,command_dnd_on,"Put <device_name> on Do Not Disturb",4
+notify,command_dnd_on,"Silence <device_name>",4
+notify,command_dnd_off,"Turn off Do Not Disturb on <device_name>",4
+notify,command_dnd_off,"Disable Do Not Disturb on <device_name>",4
+notify,command_ringer_silent,"Put <device_name> on silent",4
+notify,command_ringer_silent,"Set <device_name> to silent mode",4
+notify,command_ringer_silent,"Mute <device_name>",4
+notify,command_ringer_vibrate,"Put <device_name> on vibrate",4
+notify,command_ringer_vibrate,"Set <device_name> to vibrate mode",4
+notify,command_ringer_normal,"Set <device_name> ringer to normal",4
+notify,command_ringer_normal,"Unmute <device_name>",4
+notify,command_high_accuracy_on,"Turn on high accuracy location on <device_name>",4
+notify,command_high_accuracy_on,"Enable high accuracy mode on <device_name>",4
+notify,command_high_accuracy_off,"Turn off high accuracy location on <device_name>",4
+notify,command_high_accuracy_off,"Disable high accuracy mode on <device_name>",4
+notify,command_flashlight_on,"Turn on the flashlight on <device_name>",4
+notify,command_flashlight_on,"Enable the flashlight on <device_name>",4
+notify,command_flashlight_off,"Turn off the flashlight on <device_name>",4
+notify,command_flashlight_off,"Disable the flashlight on <device_name>",4
+notify,clear_notification,"Clear notifications on <device_name>",4
+notify,clear_notification,"Dismiss all notifications on <device_name>",4

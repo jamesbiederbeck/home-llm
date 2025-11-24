@@ -599,90 +599,35 @@ light.turn_on,entry_lamp,Please activate entryway lamp
 light.turn_on,entry_lamp,Please switch on entryway area lamp
 light.turn_on,entry_lamp,Turn on entrance light
 light.turn_on,entry_lamp,Turn on entrance lighting.
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Ping the phone for a location update
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Request location from my Pixel 7
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Get my current location from John's phone
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Request location update from Sarah's phone
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Ping Sarah's Pixel 8 for location
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Get Sarah's location
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Request location from Dad's phone
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Ping Dad's Samsung for location
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Where is Dad's phone?
-notify.mobile_app_samsung_s24,mobile_app_samsung_s24,Request location from Mom's Samsung
-notify.mobile_app_samsung_s24,mobile_app_samsung_s24,Get Mom's phone location
-notify.mobile_app_samsung_s24,mobile_app_samsung_s24,Ping Mom's phone
-notify.mobile_app_android_phone,mobile_app_android_phone,Ping the Android phone for location
-notify.mobile_app_android_phone,mobile_app_android_phone,Request location from the Android phone
-notify.mobile_app_android_phone,mobile_app_android_phone,Get location from Android device
-notify.mobile_app_my_phone,mobile_app_my_phone,Ping my phone for location
-notify.mobile_app_my_phone,mobile_app_my_phone,Request location from my phone
-notify.mobile_app_my_phone,mobile_app_my_phone,Get my phone's current location
-notify.mobile_app_my_phone,mobile_app_my_phone,Where is my phone?
-notify.mobile_app_work_phone,mobile_app_work_phone,Ping the work phone for location
-notify.mobile_app_work_phone,mobile_app_work_phone,Request location from work phone
-notify.mobile_app_work_phone,mobile_app_work_phone,Get work phone location
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Turn on Do Not Disturb on John's phone
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Enable DND on the Pixel 7
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Set John's phone to Do Not Disturb
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Turn on Do Not Disturb on Sarah's phone
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Enable DND on Sarah's Pixel
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Activate Do Not Disturb on Sarah's device
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Turn on Do Not Disturb on Dad's phone
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Enable DND on Dad's Samsung
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Set Dad's phone to silent mode
-notify.mobile_app_samsung_s24,mobile_app_samsung_s24,Turn on Do Not Disturb on Mom's phone
-notify.mobile_app_samsung_s24,mobile_app_samsung_s24,Enable DND mode on Mom's Samsung
-notify.mobile_app_android_phone,mobile_app_android_phone,Turn on Do Not Disturb on the Android phone
-notify.mobile_app_android_phone,mobile_app_android_phone,Enable DND on Android device
-notify.mobile_app_android_phone,mobile_app_android_phone,Set Android phone to Do Not Disturb
-notify.mobile_app_my_phone,mobile_app_my_phone,Turn on Do Not Disturb on my phone
-notify.mobile_app_my_phone,mobile_app_my_phone,Enable DND on my device
-notify.mobile_app_my_phone,mobile_app_my_phone,Set my phone to Do Not Disturb mode
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Silence John's phone
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Put the Pixel 7 on silent
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Set John's phone ringer to silent
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Put Sarah's phone on vibrate
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Set Sarah's Pixel to vibrate mode
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Switch Sarah's phone to vibrate
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Turn on Dad's phone ringer
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Set Dad's Samsung to normal mode
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Enable sound on Dad's phone
-notify.mobile_app_android_phone,mobile_app_android_phone,Silence the Android phone
-notify.mobile_app_android_phone,mobile_app_android_phone,Put Android device on silent
-notify.mobile_app_my_phone,mobile_app_my_phone,Put my phone on vibrate
-notify.mobile_app_my_phone,mobile_app_my_phone,Set my phone to vibrate mode
-notify.mobile_app_my_phone,mobile_app_my_phone,Switch my phone to vibrate
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Update sensors on John's phone
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Refresh sensors on the Pixel 7
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Update all sensors on John's device
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Update sensors on Sarah's phone
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Refresh all sensors on Sarah's Pixel
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Update Sarah's phone sensors
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Update sensors on Dad's phone
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Refresh Dad's Samsung sensors
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Update all sensors on Dad's device
-notify.mobile_app_android_phone,mobile_app_android_phone,Update sensors on Android phone
-notify.mobile_app_android_phone,mobile_app_android_phone,Refresh Android device sensors
-notify.mobile_app_my_phone,mobile_app_my_phone,Update sensors on my phone
-notify.mobile_app_my_phone,mobile_app_my_phone,Refresh my phone sensors
-notify.mobile_app_my_phone,mobile_app_my_phone,Update all my phone sensors
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Turn on high accuracy mode on John's phone
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Enable high accuracy location on the Pixel 7
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Turn on high accuracy mode on Sarah's phone
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Enable precise location on Sarah's Pixel
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Turn on high accuracy mode on Dad's phone
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Enable high accuracy location on Dad's Samsung
-notify.mobile_app_android_phone,mobile_app_android_phone,Turn on high accuracy mode on Android phone
-notify.mobile_app_android_phone,mobile_app_android_phone,Enable precise location on Android device
-notify.mobile_app_my_phone,mobile_app_my_phone,Turn on high accuracy mode on my phone
-notify.mobile_app_my_phone,mobile_app_my_phone,Enable high accuracy location on my phone
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Turn on Bluetooth on John's phone
-notify.mobile_app_pixel_7,mobile_app_pixel_7,Enable Bluetooth on the Pixel 7
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Turn on Bluetooth on Sarah's phone
-notify.mobile_app_pixel_8,mobile_app_pixel_8,Activate Bluetooth on Sarah's Pixel
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Turn on Bluetooth on Dad's phone
-notify.mobile_app_samsung_s23,mobile_app_samsung_s23,Enable Bluetooth on Dad's Samsung
-notify.mobile_app_android_phone,mobile_app_android_phone,Turn on Bluetooth on Android phone
-notify.mobile_app_android_phone,mobile_app_android_phone,Enable Bluetooth on Android device
-notify.mobile_app_my_phone,mobile_app_my_phone,Turn on Bluetooth on my phone
-notify.mobile_app_my_phone,mobile_app_my_phone,Activate Bluetooth on my phone
+notify.request_location_update,mobile_app_johns_phone,Ping John's phone for location
+notify.request_location_update,mobile_app_johns_phone,Where is John's phone
+notify.request_location_update,mobile_app_sarahs_phone,Get Sarah's phone location
+notify.request_location_update,mobile_app_my_phone,Ping my phone for a location update
+notify.request_location_update,mobile_app_my_phone,Get my phone's current location
+notify.request_location_update,mobile_app_dads_phone,Request location from Dad's phone
+notify.request_location_update,mobile_app_moms_phone,Where is Mom's phone
+notify.request_location_update,mobile_app_kids_tablet,Track the kids' tablet
+notify.command_bluetooth_on,mobile_app_johns_phone,Turn on Bluetooth on John's phone
+notify.command_bluetooth_on,mobile_app_my_phone,Enable Bluetooth on my phone
+notify.command_bluetooth_off,mobile_app_sarahs_phone,Turn off Bluetooth on Sarah's phone
+notify.command_bluetooth_off,mobile_app_my_phone,Disable Bluetooth on my phone
+notify.command_dnd_on,mobile_app_johns_phone,Put John's phone on Do Not Disturb
+notify.command_dnd_on,mobile_app_my_phone,Turn on Do Not Disturb on my phone
+notify.command_dnd_on,mobile_app_sarahs_phone,Silence Sarah's phone
+notify.command_dnd_off,mobile_app_my_phone,Turn off Do Not Disturb on my phone
+notify.command_ringer_silent,mobile_app_my_phone,Put my phone on silent
+notify.command_ringer_silent,mobile_app_johns_phone,Mute John's phone
+notify.command_ringer_vibrate,mobile_app_my_phone,Set my phone to vibrate
+notify.command_ringer_vibrate,mobile_app_sarahs_phone,Put Sarah's phone on vibrate
+notify.command_ringer_normal,mobile_app_my_phone,Unmute my phone
+notify.command_ringer_normal,mobile_app_dads_phone,Set Dad's phone ringer to normal
+notify.command_high_accuracy_on,mobile_app_my_phone,Enable high accuracy location on my phone
+notify.command_high_accuracy_on,mobile_app_johns_phone,Turn on GPS high accuracy on John's phone
+notify.command_high_accuracy_off,mobile_app_my_phone,Disable high accuracy mode on my phone
+notify.command_flashlight_on,mobile_app_my_phone,Turn on my phone's flashlight
+notify.command_flashlight_on,mobile_app_johns_phone,Enable the flashlight on John's phone
+notify.command_flashlight_off,mobile_app_my_phone,Turn off my phone's flashlight
+notify.command_update_sensors,mobile_app_my_phone,Update sensors on my phone
+notify.command_update_sensors,mobile_app_johns_phone,Refresh the sensors on John's phone
+notify.clear_notification,mobile_app_my_phone,Clear notifications on my phone
+notify.clear_notification,mobile_app_sarahs_phone,Dismiss all notifications on Sarah's phone

@@ -229,6 +229,47 @@ class MediaPlayerDeviceType(DeviceType):
             state = state + ";vol=" + str(self.get_random_parameter("volume"))
         return state
 
+class NotifyDeviceType(DeviceType):
+    """Special device type for notification services.
+    
+    Notify services work differently - the service name IS the device entity,
+    and the command is passed via the 'message' parameter.
+    """
+    # Commands that don't need additional data parameters
+    SIMPLE_COMMANDS = [
+        "request_location_update",
+        "command_update_sensors", 
+        "clear_notification",
+    ]
+    
+    # Commands that need a 'command' data parameter with specific values
+    COMMANDS_WITH_DATA = {
+        "command_bluetooth": ["turn_on", "turn_off"],
+        "command_dnd": ["alarms_only", "off", "priority_only", "total_silence"],
+        "command_ringer_mode": ["normal", "silent", "vibrate"],
+        "command_high_accuracy_mode": ["turn_on", "turn_off", "force_on", "force_off"],
+        "command_flashlight": ["turn_on", "turn_off"],
+        "command_auto_screen_brightness": ["turn_on", "turn_off"],
+        "command_beacon_monitor": ["turn_on", "turn_off"],
+        "command_ble_transmitter": ["turn_on", "turn_off"],
+    }
+    
+    def __init__(self):
+        super().__init__("notify",
+            possible_states=[
+                (STATE_ON, 1.0),
+            ],
+            services={
+                # For notify, services are dynamically generated from device names
+            },
+            random_parameter_generator={}
+        )
+
+    def get_all_services(self, extra_exposed_attributes):
+        # Notify services are listed as the full entity ID with message parameter
+        # e.g., notify.mobile_app_johns_phone(message)
+        return []  # Don't list notify services in the services prompt
+
 SUPPORTED_DEVICES = {
     "light": LightDeviceType(),
     "switch": DeviceType(
@@ -343,44 +384,7 @@ SUPPORTED_DEVICES = {
             "todo": lambda: random.choice(pile_of_todo_items),
         }
     ),
-    "notify": DeviceType(
-        name="notify",
-        possible_states=[
-            (STATE_ON, 1.0),
-        ],
-        services={
-            "mobile_app_pixel_7": ["message"],
-            "mobile_app_pixel_8": ["message"],
-            "mobile_app_samsung_s23": ["message"],
-            "mobile_app_samsung_s24": ["message"],
-            "mobile_app_oneplus_11": ["message"],
-            "mobile_app_pixel_tablet": ["message"],
-            "mobile_app_samsung_tab": ["message"],
-            "mobile_app_android_phone": ["message"],
-            "mobile_app_my_phone": ["message"],
-            "mobile_app_work_phone": ["message"],
-            "mobile_app_family_tablet": ["message"],
-            "mobile_app_guest_phone": ["message"],
-            "mobile_app_pixel_6": ["message"],
-            "mobile_app_galaxy_fold": ["message"],
-            "mobile_app_motorola": ["message"],
-            "mobile_app_xiaomi": ["message"],
-            "mobile_app_bedroom_tablet": ["message"],
-            "mobile_app_kids_tablet": ["message"],
-            "mobile_app_backup_phone": ["message"],
-            "mobile_app_travel_phone": ["message"],
-        },
-        random_parameter_generator={
-            "message": lambda: random.choice([
-                "request_location_update",
-                "command_dnd",
-                "command_ringer_mode",
-                "command_update_sensors",
-                "command_high_accuracy_mode",
-                "command_bluetooth",
-            ]),
-        }
-    ),
+    "notify": NotifyDeviceType(),
 }
 
 CURRENT_DATE_PROMPT = {
@@ -516,6 +520,53 @@ def random_device_list(max_devices: int, avoid_device_names: list[str]):
 
     return device_lines, list(device_types), list(extra_exposed_attributes)
 
+def build_notify_service_call(command_name: str, target_device: str) -> dict:
+    """Build a proper notify service call with the correct message and data format.
+    
+    Args:
+        command_name: The notify command (e.g., 'request_location_update', 'command_bluetooth_on')
+        target_device: The target device entity (e.g., 'notify.mobile_app_johns_phone')
+    
+    Returns:
+        A dict with the proper service call format for notify commands
+    """
+    # Map our custom command names to the actual Home Assistant format
+    command_mappings = {
+        # Simple commands (no data parameter needed)
+        "request_location_update": {"message": "request_location_update"},
+        "command_update_sensors": {"message": "command_update_sensors"},
+        "clear_notification": {"message": "clear_notification"},
+        
+        # Bluetooth commands
+        "command_bluetooth_on": {"message": "command_bluetooth", "data": {"command": "turn_on"}},
+        "command_bluetooth_off": {"message": "command_bluetooth", "data": {"command": "turn_off"}},
+        
+        # Do Not Disturb commands
+        "command_dnd_on": {"message": "command_dnd", "data": {"command": "priority_only"}},
+        "command_dnd_off": {"message": "command_dnd", "data": {"command": "off"}},
+        
+        # Ringer mode commands
+        "command_ringer_silent": {"message": "command_ringer_mode", "data": {"command": "silent"}},
+        "command_ringer_vibrate": {"message": "command_ringer_mode", "data": {"command": "vibrate"}},
+        "command_ringer_normal": {"message": "command_ringer_mode", "data": {"command": "normal"}},
+        
+        # High accuracy mode commands
+        "command_high_accuracy_on": {"message": "command_high_accuracy_mode", "data": {"command": "turn_on"}},
+        "command_high_accuracy_off": {"message": "command_high_accuracy_mode", "data": {"command": "turn_off"}},
+        
+        # Flashlight commands
+        "command_flashlight_on": {"message": "command_flashlight", "data": {"command": "turn_on"}},
+        "command_flashlight_off": {"message": "command_flashlight", "data": {"command": "turn_off"}},
+    }
+    
+    if command_name not in command_mappings:
+        # Unknown command, return basic format
+        return {"service": target_device, "message": command_name}
+    
+    service_call = {"service": target_device}
+    service_call.update(command_mappings[command_name])
+    return service_call
+
 def generate_static_example(action: dict, persona: str, max_devices: int = 32):
     question = action["phrase"]
     service_name = action["service_name"]
@@ -550,20 +601,19 @@ def generate_static_example(action: dict, persona: str, max_devices: int = 32):
 
     response = response.replace("<device_name>", friendly_name)
 
-    service_calls = [ { "service": service_name, "target_device": target_device } ]
-    
-    # Add message parameter for notify services
-    if "notify" in service_name:
-        notify_device_type = SUPPORTED_DEVICES["notify"]
-        message = notify_device_type.get_random_parameter("message")
-        service_calls = [ { **call, "message": message } for call in service_calls ]
+    # Build service call - use special format for notify commands
+    if device_type == "notify":
+        command_name = service_name.split(".")[1]  # e.g., "request_location_update"
+        service_call = build_notify_service_call(command_name, target_device)
+    else:
+        service_call = { "service": service_name, "target_device": target_device }
 
     return {
         "states": device_list,
         "available_services": list(available_services),
         "question": question.lower(),
         "answers": [ response ],
-        "service_calls": service_calls
+        "service_calls": [ service_call ]
     }
 
 def replace_answer(list_of_answer, var, value):
@@ -650,7 +700,13 @@ def generate_templated_example(template: dict, persona: str, max_devices: int = 
     # generate the list of service calls and answers
     service_calls = []
     for device_dict, service in zip(chosen_devices, service_names):
-        service_calls.append({ "service": service, "target_device": device_dict["device_name"] })
+        device_type = service.split(".")[0]
+        if device_type == "notify":
+            command_name = service.split(".")[1]  # e.g., "request_location_update"
+            service_call = build_notify_service_call(command_name, device_dict["device_name"])
+        else:
+            service_call = { "service": service, "target_device": device_dict["device_name"] }
+        service_calls.append(service_call)
 
     if any(["climate" in service for service in service_names ]):
         climate_device_type = SUPPORTED_DEVICES["climate"]
@@ -721,12 +777,6 @@ def generate_templated_example(template: dict, persona: str, max_devices: int = 
             question = question.replace("<todo>", todo)
             answer = replace_answer(answer, "<todo>", todo)
             service_calls = [ { **call, "item": todo } for call in service_calls ]
-
-    if any(["notify" in service for service in service_names ]):
-        notify_device_type = SUPPORTED_DEVICES["notify"]
-        # Add message parameter for notify services
-        message = notify_device_type.get_random_parameter("message")
-        service_calls = [ { **call, "message": message } for call in service_calls ]
 
     return {
         "states": device_list,

@@ -658,130 +658,33 @@ timer.cancel,"The timer on <device_name> has been cleared.",assistant,0
 timer.cancel,"Timer on <device_name> stopped successfully.",assistant,0
 timer.cancel,"Your running timer on <device_name> is now canceled.",assistant,0
 timer.cancel,"<device_name>'s timer has been deactivated.",assistant,0
-notify.mobile_app_pixel_7,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_pixel_7,"Getting location from <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Location update requested from <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_pixel_8,"Getting location from <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Location update requested from <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_samsung_s23,"Getting location from <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Location update requested from <device_name>.",assistant,0
-notify.mobile_app_samsung_s24,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_samsung_s24,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_samsung_s24,"Getting location from <device_name>.",assistant,0
-notify.mobile_app_samsung_s24,"Location update requested from <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_android_phone,"Getting location from <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Location update requested from <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_my_phone,"Getting location from <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Location update requested from <device_name>.",assistant,0
-notify.mobile_app_work_phone,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_work_phone,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_work_phone,"Getting location from <device_name>.",assistant,0
-notify.mobile_app_work_phone,"Location update requested from <device_name>.",assistant,0
-notify.mobile_app_oneplus_11,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_oneplus_11,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_pixel_tablet,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_pixel_tablet,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_samsung_tab,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_samsung_tab,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_family_tablet,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_family_tablet,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_guest_phone,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_guest_phone,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_pixel_6,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_pixel_6,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_galaxy_fold,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_galaxy_fold,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_motorola,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_motorola,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_xiaomi,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_xiaomi,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_bedroom_tablet,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_bedroom_tablet,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_kids_tablet,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_kids_tablet,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_backup_phone,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_backup_phone,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_travel_phone,"Requesting location update from <device_name>.",assistant,0
-notify.mobile_app_travel_phone,"Pinging <device_name> for location.",assistant,0
-notify.mobile_app_pixel_7,"Enabling Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Setting <device_name> to Do Not Disturb mode.",assistant,0
-notify.mobile_app_pixel_7,"Activating Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Enabling Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Setting <device_name> to Do Not Disturb mode.",assistant,0
-notify.mobile_app_pixel_8,"Activating Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Enabling Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Setting <device_name> to Do Not Disturb mode.",assistant,0
-notify.mobile_app_samsung_s24,"Enabling Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_samsung_s24,"Setting <device_name> to Do Not Disturb mode.",assistant,0
-notify.mobile_app_android_phone,"Enabling Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Setting <device_name> to Do Not Disturb mode.",assistant,0
-notify.mobile_app_my_phone,"Enabling Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Setting <device_name> to Do Not Disturb mode.",assistant,0
-notify.mobile_app_my_phone,"Activating Do Not Disturb on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Setting <device_name> ringer to silent.",assistant,0
-notify.mobile_app_pixel_7,"Silencing <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Putting <device_name> on silent mode.",assistant,0
-notify.mobile_app_pixel_8,"Setting <device_name> ringer to vibrate.",assistant,0
-notify.mobile_app_pixel_8,"Putting <device_name> on vibrate.",assistant,0
-notify.mobile_app_pixel_8,"Switching <device_name> to vibrate mode.",assistant,0
-notify.mobile_app_samsung_s23,"Setting <device_name> ringer to normal.",assistant,0
-notify.mobile_app_samsung_s23,"Turning on <device_name> ringer.",assistant,0
-notify.mobile_app_samsung_s23,"Activating sound on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Silencing <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Putting <device_name> on silent mode.",assistant,0
-notify.mobile_app_my_phone,"Setting <device_name> to vibrate mode.",assistant,0
-notify.mobile_app_my_phone,"Putting <device_name> on vibrate.",assistant,0
-notify.mobile_app_my_phone,"Switching <device_name> to vibrate mode.",assistant,0
-notify.mobile_app_pixel_7,"Updating sensors on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Refreshing all sensors on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Updating <device_name> sensors.",assistant,0
-notify.mobile_app_pixel_8,"Updating sensors on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Refreshing all sensors on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Updating <device_name> sensors.",assistant,0
-notify.mobile_app_samsung_s23,"Updating sensors on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Refreshing all sensors on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Updating <device_name> sensors.",assistant,0
-notify.mobile_app_samsung_s24,"Updating sensors on <device_name>.",assistant,0
-notify.mobile_app_samsung_s24,"Refreshing all sensors on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Updating sensors on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Refreshing all sensors on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Updating <device_name> sensors.",assistant,0
-notify.mobile_app_my_phone,"Updating sensors on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Refreshing all sensors on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Updating <device_name> sensors.",assistant,0
-notify.mobile_app_pixel_7,"Enabling high accuracy mode on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Turning on precise location on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Activating high accuracy location on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Enabling high accuracy mode on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Turning on precise location on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Activating high accuracy location on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Enabling high accuracy mode on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Turning on precise location on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Enabling high accuracy mode on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Turning on precise location on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Enabling high accuracy mode on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Turning on precise location on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Activating high accuracy location on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Turning on Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Enabling Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_pixel_7,"Activating Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Turning on Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Enabling Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_pixel_8,"Activating Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Turning on Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Enabling Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_samsung_s23,"Activating Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Turning on Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_android_phone,"Enabling Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Turning on Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Enabling Bluetooth on <device_name>.",assistant,0
-notify.mobile_app_my_phone,"Activating Bluetooth on <device_name>.",assistant,0
+notify.request_location_update,"Requesting location update from <device_name>.",assistant,0
+notify.request_location_update,"Pinging <device_name> for its location.",assistant,0
+notify.request_location_update,"Getting the current location from <device_name>.",assistant,0
+notify.command_update_sensors,"Updating sensors on <device_name>.",assistant,0
+notify.command_update_sensors,"Refreshing all sensors on <device_name>.",assistant,0
+notify.command_bluetooth_on,"Turning on Bluetooth on <device_name>.",assistant,0
+notify.command_bluetooth_on,"Enabling Bluetooth on <device_name>.",assistant,0
+notify.command_bluetooth_off,"Turning off Bluetooth on <device_name>.",assistant,0
+notify.command_bluetooth_off,"Disabling Bluetooth on <device_name>.",assistant,0
+notify.command_dnd_on,"Enabling Do Not Disturb on <device_name>.",assistant,0
+notify.command_dnd_on,"Putting <device_name> on Do Not Disturb mode.",assistant,0
+notify.command_dnd_on,"Silencing <device_name>.",assistant,0
+notify.command_dnd_off,"Disabling Do Not Disturb on <device_name>.",assistant,0
+notify.command_dnd_off,"Turning off Do Not Disturb on <device_name>.",assistant,0
+notify.command_ringer_silent,"Setting <device_name> to silent mode.",assistant,0
+notify.command_ringer_silent,"Muting <device_name>.",assistant,0
+notify.command_ringer_vibrate,"Setting <device_name> to vibrate mode.",assistant,0
+notify.command_ringer_vibrate,"Putting <device_name> on vibrate.",assistant,0
+notify.command_ringer_normal,"Setting <device_name> ringer to normal.",assistant,0
+notify.command_ringer_normal,"Unmuting <device_name>.",assistant,0
+notify.command_high_accuracy_on,"Enabling high accuracy location on <device_name>.",assistant,0
+notify.command_high_accuracy_on,"Turning on GPS high accuracy on <device_name>.",assistant,0
+notify.command_high_accuracy_off,"Disabling high accuracy location on <device_name>.",assistant,0
+notify.command_high_accuracy_off,"Turning off high accuracy mode on <device_name>.",assistant,0
+notify.command_flashlight_on,"Turning on the flashlight on <device_name>.",assistant,0
+notify.command_flashlight_on,"Enabling the flashlight on <device_name>.",assistant,0
+notify.command_flashlight_off,"Turning off the flashlight on <device_name>.",assistant,0
+notify.command_flashlight_off,"Disabling the flashlight on <device_name>.",assistant,0
+notify.clear_notification,"Clearing notifications on <device_name>.",assistant,0
+notify.clear_notification,"Dismissing all notifications on <device_name>.",assistant,0
