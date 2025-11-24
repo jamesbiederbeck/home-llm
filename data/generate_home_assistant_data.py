@@ -235,24 +235,6 @@ class NotifyDeviceType(DeviceType):
     Notify services work differently - the service name IS the device entity,
     and the command is passed via the 'message' parameter.
     """
-    # Commands that don't need additional data parameters
-    SIMPLE_COMMANDS = [
-        "request_location_update",
-        "command_update_sensors", 
-        "clear_notification",
-    ]
-    
-    # Commands that need a 'command' data parameter with specific values
-    COMMANDS_WITH_DATA = {
-        "command_bluetooth": ["turn_on", "turn_off"],
-        "command_dnd": ["alarms_only", "off", "priority_only", "total_silence"],
-        "command_ringer_mode": ["normal", "silent", "vibrate"],
-        "command_high_accuracy_mode": ["turn_on", "turn_off", "force_on", "force_off"],
-        "command_flashlight": ["turn_on", "turn_off"],
-        "command_auto_screen_brightness": ["turn_on", "turn_off"],
-        "command_beacon_monitor": ["turn_on", "turn_off"],
-        "command_ble_transmitter": ["turn_on", "turn_off"],
-    }
     
     def __init__(self):
         super().__init__("notify",
@@ -266,9 +248,9 @@ class NotifyDeviceType(DeviceType):
         )
 
     def get_all_services(self, extra_exposed_attributes):
-        # Notify services are listed as the full entity ID with message parameter
-        # e.g., notify.mobile_app_johns_phone(message)
-        return []  # Don't list notify services in the services prompt
+        # Notify services are not listed in the services prompt
+        # as they use a different format (entity ID is the service)
+        return []
 
 SUPPORTED_DEVICES = {
     "light": LightDeviceType(),
