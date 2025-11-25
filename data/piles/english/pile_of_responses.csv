@@ -658,3 +658,33 @@ timer.cancel,"The timer on <device_name> has been cleared.",assistant,0
 timer.cancel,"Timer on <device_name> stopped successfully.",assistant,0
 timer.cancel,"Your running timer on <device_name> is now canceled.",assistant,0
 timer.cancel,"<device_name>'s timer has been deactivated.",assistant,0
+notify.request_location_update,"Requesting location update from <device_name>.",assistant,0
+notify.request_location_update,"Pinging <device_name> for its location.",assistant,0
+notify.request_location_update,"Getting the current location from <device_name>.",assistant,0
+notify.command_update_sensors,"Updating sensors on <device_name>.",assistant,0
+notify.command_update_sensors,"Refreshing all sensors on <device_name>.",assistant,0
+notify.command_bluetooth_on,"Turning on Bluetooth on <device_name>.",assistant,0
+notify.command_bluetooth_on,"Enabling Bluetooth on <device_name>.",assistant,0
+notify.command_bluetooth_off,"Turning off Bluetooth on <device_name>.",assistant,0
+notify.command_bluetooth_off,"Disabling Bluetooth on <device_name>.",assistant,0
+notify.command_dnd_on,"Enabling Do Not Disturb on <device_name>.",assistant,0
+notify.command_dnd_on,"Putting <device_name> on Do Not Disturb mode.",assistant,0
+notify.command_dnd_on,"Silencing <device_name>.",assistant,0
+notify.command_dnd_off,"Disabling Do Not Disturb on <device_name>.",assistant,0
+notify.command_dnd_off,"Turning off Do Not Disturb on <device_name>.",assistant,0
+notify.command_ringer_silent,"Setting <device_name> to silent mode.",assistant,0
+notify.command_ringer_silent,"Muting <device_name>.",assistant,0
+notify.command_ringer_vibrate,"Setting <device_name> to vibrate mode.",assistant,0
+notify.command_ringer_vibrate,"Putting <device_name> on vibrate.",assistant,0
+notify.command_ringer_normal,"Setting <device_name> ringer to normal.",assistant,0
+notify.command_ringer_normal,"Unmuting <device_name>.",assistant,0
+notify.command_high_accuracy_on,"Enabling high accuracy location on <device_name>.",assistant,0
+notify.command_high_accuracy_on,"Turning on GPS high accuracy on <device_name>.",assistant,0
+notify.command_high_accuracy_off,"Disabling high accuracy location on <device_name>.",assistant,0
+notify.command_high_accuracy_off,"Turning off high accuracy mode on <device_name>.",assistant,0
+notify.command_flashlight_on,"Turning on the flashlight on <device_name>.",assistant,0
+notify.command_flashlight_on,"Enabling the flashlight on <device_name>.",assistant,0
+notify.command_flashlight_off,"Turning off the flashlight on <device_name>.",assistant,0
+notify.command_flashlight_off,"Disabling the flashlight on <device_name>.",assistant,0
+notify.clear_notification,"Clearing notifications on <device_name>.",assistant,0
+notify.clear_notification,"Dismissing all notifications on <device_name>.",assistant,0

@@ -56,12 +56,26 @@ and_words = None
 
 def closest_color(requested_color):
     min_colors = {}
-    for key, name in webcolors.CSS3_HEX_TO_NAMES.items():
-        r_c, g_c, b_c = webcolors.hex_to_rgb(key)
-        rd = (r_c - requested_color[0]) ** 2
-        gd = (g_c - requested_color[1]) ** 2
-        bd = (b_c - requested_color[2]) ** 2
-        min_colors[(rd + gd + bd)] = name
+    # Support both old and new webcolors API
+    if hasattr(webcolors, 'CSS3_HEX_TO_NAMES'):
+        # Old API (webcolors < 2.0)
+        for key, name in webcolors.CSS3_HEX_TO_NAMES.items():
+            r_c, g_c, b_c = webcolors.hex_to_rgb(key)
+            rd = (r_c - requested_color[0]) ** 2
+            gd = (g_c - requested_color[1]) ** 2
+            bd = (b_c - requested_color[2]) ** 2
+            min_colors[(rd + gd + bd)] = name
+    else:
+        # New API (webcolors >= 2.0)
+        for name in webcolors.names(spec=webcolors.CSS3):
+            try:
+                r_c, g_c, b_c = webcolors.name_to_rgb(name, spec=webcolors.CSS3)
+                rd = (r_c - requested_color[0]) ** 2
+                gd = (g_c - requested_color[1]) ** 2
+                bd = (b_c - requested_color[2]) ** 2
+                min_colors[(rd + gd + bd)] = name
+            except (ValueError, AttributeError):
+                pass
     return min_colors[min(min_colors.keys())]
 
 def generate_random_datetime():
@@ -215,6 +229,29 @@ class MediaPlayerDeviceType(DeviceType):
             state = state + ";vol=" + str(self.get_random_parameter("volume"))
         return state
 
+class NotifyDeviceType(DeviceType):
+    """Special device type for notification services.
+    
+    Notify services work differently - the service name IS the device entity,
+    and the command is passed via the 'message' parameter.
+    """
+    
+    def __init__(self):
+        super().__init__("notify",
+            possible_states=[
+                (STATE_ON, 1.0),
+            ],
+            services={
+                # For notify, services are dynamically generated from device names
+            },
+            random_parameter_generator={}
+        )
+
+    def get_all_services(self, extra_exposed_attributes):
+        # Notify services are not listed in the services prompt
+        # as they use a different format (entity ID is the service)
+        return []
+
 SUPPORTED_DEVICES = {
     "light": LightDeviceType(),
     "switch": DeviceType(
@@ -329,6 +366,7 @@ SUPPORTED_DEVICES = {
             "todo": lambda: random.choice(pile_of_todo_items),
         }
     ),
+    "notify": NotifyDeviceType(),
 }
 
 CURRENT_DATE_PROMPT = {
@@ -464,6 +502,53 @@ def random_device_list(max_devices: int, avoid_device_names: list[str]):
 
     return device_lines, list(device_types), list(extra_exposed_attributes)
 
+def build_notify_service_call(command_name: str, target_device: str) -> dict:
+    """Build a proper notify service call with the correct message and data format.
+    
+    Args:
+        command_name: The notify command (e.g., 'request_location_update', 'command_bluetooth_on')
+        target_device: The target device entity (e.g., 'notify.mobile_app_johns_phone')
+    
+    Returns:
+        A dict with the proper service call format for notify commands
+    """
+    # Map our custom command names to the actual Home Assistant format
+    command_mappings = {
+        # Simple commands (no data parameter needed)
+        "request_location_update": {"message": "request_location_update"},
+        "command_update_sensors": {"message": "command_update_sensors"},
+        "clear_notification": {"message": "clear_notification"},
+        
+        # Bluetooth commands
+        "command_bluetooth_on": {"message": "command_bluetooth", "data": {"command": "turn_on"}},
+        "command_bluetooth_off": {"message": "command_bluetooth", "data": {"command": "turn_off"}},
+        
+        # Do Not Disturb commands
+        "command_dnd_on": {"message": "command_dnd", "data": {"command": "priority_only"}},
+        "command_dnd_off": {"message": "command_dnd", "data": {"command": "off"}},
+        
+        # Ringer mode commands
+        "command_ringer_silent": {"message": "command_ringer_mode", "data": {"command": "silent"}},
+        "command_ringer_vibrate": {"message": "command_ringer_mode", "data": {"command": "vibrate"}},
+        "command_ringer_normal": {"message": "command_ringer_mode", "data": {"command": "normal"}},
+        
+        # High accuracy mode commands
+        "command_high_accuracy_on": {"message": "command_high_accuracy_mode", "data": {"command": "turn_on"}},
+        "command_high_accuracy_off": {"message": "command_high_accuracy_mode", "data": {"command": "turn_off"}},
+        
+        # Flashlight commands
+        "command_flashlight_on": {"message": "command_flashlight", "data": {"command": "turn_on"}},
+        "command_flashlight_off": {"message": "command_flashlight", "data": {"command": "turn_off"}},
+    }
+    
+    if command_name not in command_mappings:
+        # Unknown command, return basic format
+        return {"service": target_device, "message": command_name}
+    
+    service_call = {"service": target_device}
+    service_call.update(command_mappings[command_name])
+    return service_call
+
 def generate_static_example(action: dict, persona: str, max_devices: int = 32):
     question = action["phrase"]
     service_name = action["service_name"]
@@ -498,12 +583,19 @@ def generate_static_example(action: dict, persona: str, max_devices: int = 32):
 
     response = response.replace("<device_name>", friendly_name)
 
+    # Build service call - use special format for notify commands
+    if device_type == "notify":
+        command_name = service_name.split(".")[1]  # e.g., "request_location_update"
+        service_call = build_notify_service_call(command_name, target_device)
+    else:
+        service_call = { "service": service_name, "target_device": target_device }
+
     return {
         "states": device_list,
         "available_services": list(available_services),
         "question": question.lower(),
         "answers": [ response ],
-        "service_calls": [ { "service": service_name, "target_device": target_device } ]
+        "service_calls": [ service_call ]
     }
 
 def replace_answer(list_of_answer, var, value):
@@ -590,7 +682,13 @@ def generate_templated_example(template: dict, persona: str, max_devices: int = 
     # generate the list of service calls and answers
     service_calls = []
     for device_dict, service in zip(chosen_devices, service_names):
-        service_calls.append({ "service": service, "target_device": device_dict["device_name"] })
+        device_type = service.split(".")[0]
+        if device_type == "notify":
+            command_name = service.split(".")[1]  # e.g., "request_location_update"
+            service_call = build_notify_service_call(command_name, device_dict["device_name"])
+        else:
+            service_call = { "service": service, "target_device": device_dict["device_name"] }
+        service_calls.append(service_call)
 
     if any(["climate" in service for service in service_names ]):
         climate_device_type = SUPPORTED_DEVICES["climate"]
@@ -635,7 +733,11 @@ def generate_templated_example(template: dict, persona: str, max_devices: int = 
         if "<color>" in question:
             random_rgb = light_device_type.get_random_parameter("rgb_color")
             random_rgb_name = closest_color(random_rgb)
-            actual_random_rgb = webcolors.name_to_rgb(random_rgb_name)
+            # Support both old and new webcolors API
+            if hasattr(webcolors, 'CSS3_HEX_TO_NAMES'):
+                actual_random_rgb = webcolors.name_to_rgb(random_rgb_name)
+            else:
+                actual_random_rgb = webcolors.name_to_rgb(random_rgb_name, spec=webcolors.CSS3)
             actual_random_rgb = (actual_random_rgb.red, actual_random_rgb.green, actual_random_rgb.blue)
             question = question.replace("<color>", str(random_rgb_name))
             answer = replace_answer(answer, "<color>", str(random_rgb_name))
@@ -706,7 +808,11 @@ def generate_status_request(template: dict, persona: str, max_devices: int = 32,
 
         random_rgb = light_device_type.get_random_parameter("rgb_color")
         random_rgb_name = closest_color(random_rgb)
-        actual_random_rgb = webcolors.name_to_rgb(random_rgb_name)
+        # Support both old and new webcolors API
+        if hasattr(webcolors, 'CSS3_HEX_TO_NAMES'):
+            actual_random_rgb = webcolors.name_to_rgb(random_rgb_name)
+        else:
+            actual_random_rgb = webcolors.name_to_rgb(random_rgb_name, spec=webcolors.CSS3)
         actual_random_rgb = (actual_random_rgb.red, actual_random_rgb.green, actual_random_rgb.blue)
         state_name = state_name.replace("<color>", str(random_rgb_name) + " " + str(actual_random_rgb))
         answer = answer.replace("<color>", str(random_rgb_name))

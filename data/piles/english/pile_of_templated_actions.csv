@@ -263,3 +263,39 @@ timer,cancel,"Please stop my <device_name>.",8
 timer,cancel,"Turn off the <device_name>.",8
 timer,cancel,"Please shut off the <device_name> timer.",8
 timer,cancel,"The <device_name> is no longer needed.",8
+notify,request_location_update,"Request a location update from <device_name>",4
+notify,request_location_update,"Ping <device_name> for a location update",4
+notify,request_location_update,"Get the current location from <device_name>",4
+notify,request_location_update,"Update the location of <device_name>",4
+notify,request_location_update,"Where is <device_name> right now",4
+notify,command_update_sensors,"Update all sensors on <device_name>",4
+notify,command_update_sensors,"Refresh the sensors on <device_name>",4
+notify,command_update_sensors,"Sync the sensors on <device_name>",4
+notify,command_bluetooth_on,"Turn on Bluetooth on <device_name>",4
+notify,command_bluetooth_on,"Enable Bluetooth on <device_name>",4
+notify,command_bluetooth_on,"Switch on Bluetooth on <device_name>",4
+notify,command_bluetooth_off,"Turn off Bluetooth on <device_name>",4
+notify,command_bluetooth_off,"Disable Bluetooth on <device_name>",4
+notify,command_dnd_on,"Turn on Do Not Disturb on <device_name>",4
+notify,command_dnd_on,"Enable Do Not Disturb on <device_name>",4
+notify,command_dnd_on,"Put <device_name> on Do Not Disturb",4
+notify,command_dnd_on,"Silence <device_name>",4
+notify,command_dnd_off,"Turn off Do Not Disturb on <device_name>",4
+notify,command_dnd_off,"Disable Do Not Disturb on <device_name>",4
+notify,command_ringer_silent,"Put <device_name> on silent",4
+notify,command_ringer_silent,"Set <device_name> to silent mode",4
+notify,command_ringer_silent,"Mute <device_name>",4
+notify,command_ringer_vibrate,"Put <device_name> on vibrate",4
+notify,command_ringer_vibrate,"Set <device_name> to vibrate mode",4
+notify,command_ringer_normal,"Set <device_name> ringer to normal",4
+notify,command_ringer_normal,"Unmute <device_name>",4
+notify,command_high_accuracy_on,"Turn on high accuracy location on <device_name>",4
+notify,command_high_accuracy_on,"Enable high accuracy mode on <device_name>",4
+notify,command_high_accuracy_off,"Turn off high accuracy location on <device_name>",4
+notify,command_high_accuracy_off,"Disable high accuracy mode on <device_name>",4
+notify,command_flashlight_on,"Turn on the flashlight on <device_name>",4
+notify,command_flashlight_on,"Enable the flashlight on <device_name>",4
+notify,command_flashlight_off,"Turn off the flashlight on <device_name>",4
+notify,command_flashlight_off,"Disable the flashlight on <device_name>",4
+notify,clear_notification,"Clear notifications on <device_name>",4
+notify,clear_notification,"Dismiss all notifications on <device_name>",4
