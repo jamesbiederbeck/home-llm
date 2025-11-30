@@ -110,7 +110,7 @@ class GenericOpenAIAPIClient(LocalLLMClient):
             ) as response:
                 response.raise_for_status()
                 models_result = await response.json()
-        except:
+        except Exception:
             _LOGGER.exception("Failed to get available models")
             return RECOMMENDED_CHAT_MODELS
             
